@@ -1,0 +1,22 @@
+class random;
+ 
+   randc bit[3:0]countc;
+  constraint c1{countc<100;}
+  function void display();
+    $display("countc is %0p",countc);
+  endfunction
+endclass
+module tb;
+  initial
+    begin
+     random count;
+      count=new();
+      if(count.randomize()) begin 
+      count.display();
+    end else begin
+      $display("failed");
+    end
+    end
+endmodule 
+  
+  
